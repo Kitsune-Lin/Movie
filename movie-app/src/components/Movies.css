@@ -1,0 +1,22 @@
+.movies-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  background-color: #302D2F;
+  padding: 20px;
+}
+
+.movie-card {
+  background-color: #FCFBFA;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 200px;
+  text-align: center;
+}
+
+.movie-card img {
+  width: 100%;
+  border-radius: 8px;
+}

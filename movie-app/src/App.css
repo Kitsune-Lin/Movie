@@ -1,0 +1,38 @@
+.app-container {
+  background-color: #302D2F;
+  min-height: 100vh;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 60px; /* Ajuste de padding superior para que el contenido no se superponga con la barra de navegación */
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.filter-button {
+  background-color: #FCFBFA;
+  padding: 10px 20px;
+  margin: 0 10px;
+  border-radius: 20px;
+  border: none;
+  color: #302D2F;
+  font-weight: bold;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.filter-button:hover {
+  background-color: #FFD700;
+  color: #000;
+}
+
+.home-title {
+  font-size: 24px;
+  margin-bottom: 20px;
+  text-align: center;
+}
