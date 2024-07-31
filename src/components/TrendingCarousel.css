@@ -1,0 +1,53 @@
+.carousel {
+    position: relative; /* Posiciona el carrusel de manera relativa dentro de su contenedor */
+    width: 100%; /* Ocupa el 100% del ancho del contenedor */
+    height: 70vh; /* Ocupa el 70% de la altura de la ventana */
+    color: white; /* Define el color del texto como blanco */
+    overflow: hidden; /* Oculta cualquier contenido que se desborde del carrusel */
+  }
+  
+  .carousel-background {
+    position: absolute; /* Posiciona el fondo de manera absoluta dentro del carrusel */
+    top: 0; /* Alinea el fondo con la parte superior del carrusel */
+    left: 0; /* Alinea el fondo con la parte izquierda del carrusel */
+    width: 100%; /* Ocupa el 100% del ancho del carrusel */
+    height: 100%; /* Ocupa el 100% de la altura del carrusel */
+    background-size: cover; /* Ajusta el tamaño de la imagen de fondo para cubrir completamente el carrusel */
+    background-position: center; /* Centra la imagen de fondo */
+    display: flex; /* Utiliza flexbox para alinear el contenido dentro del fondo */
+    align-items: center; /* Centra el contenido verticalmente */
+    justify-content: center; /* Centra el contenido horizontalmente */
+  }
+  
+  .carousel-content {
+    position: relative; /* Posiciona el contenido de manera relativa dentro del carrusel */
+    z-index: 2; /* Asegura que el contenido esté por encima del fondo */
+    text-align: center; /* Centra el texto horizontalmente */
+    background: rgba(0, 0, 0, 0.5); /* Aplica un fondo semitransparente negro */
+    padding: 20px; /* Añade padding alrededor del contenido */
+    border-radius: 10px; /* Redondea las esquinas del contenedor de contenido */
+  }
+  
+  .carousel-content h1 {
+    font-size: 3rem; /* Define el tamaño de fuente para el título */
+    margin-bottom: 1rem; /* Añade un margen inferior al título */
+  }
+  
+  .carousel-content p {
+    font-size: 1.25rem; /* Define el tamaño de fuente para el párrafo */
+    margin-bottom: 1rem; /* Añade un margen inferior al párrafo */
+  }
+  
+  .info-button {
+    background-color: #FFD700; /* Define el color de fondo del botón */
+    color: black; /* Define el color del texto del botón */
+    padding: 10px 20px; /* Añade padding dentro del botón */
+    border-radius: 5px; /* Redondea las esquinas del botón */
+    text-decoration: none; /* Elimina el subrayado del enlace */
+    font-weight: bold; /* Hace que el texto del botón sea negrita */
+  }
+  
+  .info-button:hover {
+    background-color: #FFC300; /* Cambia el color de fondo del botón cuando se pasa el cursor sobre él */
+  }
+  

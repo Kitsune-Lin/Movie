@@ -1,32 +1,24 @@
-import React, { useState, useEffect } from 'react';
-import { Route, Routes, useLocation } from 'react-router-dom';
-import Navbar from './components/Navbar';
-import Movies from './components/Movies';
-import MovieDetail from './components/MovieDetail';
-import PersonDetail from './components/PersonDetail';
-import './App.css';
-import { getPopularMovies, getPopularSeries, getAllMovies, getAllSeries, searchAll } from './api';
+import React, { useState, useEffect } from 'react'; // Importa React y los hooks necesarios
+import { Route, Routes, useLocation } from 'react-router-dom'; // Importa componentes y hooks de react-router-dom
+import Navbar from './components/Navbar'; // Importa el componente Navbar
+import Movies from './components/Movies'; // Importa el componente Movies
+import MovieDetail from './components/MovieDetail'; // Importa el componente MovieDetail
+import PersonDetail from './components/PersonDetail'; // Importa el componente PersonDetail
+import TrendingCarousel from './components/TrendingCarousel'; // Importa el componente TrendingCarousel
+import './App.css'; // Importa los estilos CSS globales
+import { getPopularMovies, getPopularSeries, getAllMovies, getAllSeries, searchAll } from './api'; // Importa funciones para obtener datos de la API
 
 const App = () => {
-  // Estado para guardar las películas y series más populares
-  const [trending, setTrending] = useState([]);
-  // Estado para guardar todas las películas
-  const [movies, setMovies] = useState([]);
-  // Estado para guardar todas las series
-  const [tvShows, setTvShows] = useState([]);
-  // Estado para guardar los datos filtrados (resultados de búsqueda)
-  const [filteredData, setFilteredData] = useState([]);
-  // Estado para determinar el tipo de filtro actual (películas, series o todo)
-  const [filterType, setFilterType] = useState('all');
-  // Estado para manejar la paginación
-  const [page, setPage] = useState(1);
-  // Estado para manejar si se está realizando una búsqueda
-  const [searching, setSearching] = useState(false);
-  // Estado para guardar la consulta de búsqueda
-  const [searchQuery, setSearchQuery] = useState('');
+  const [trending, setTrending] = useState([]); // Estado para almacenar las películas y series más populares
+  const [movies, setMovies] = useState([]); // Estado para almacenar todas las películas
+  const [tvShows, setTvShows] = useState([]); // Estado para almacenar todas las series
+  const [filteredData, setFilteredData] = useState([]); // Estado para almacenar los datos filtrados (resultado de búsqueda)
+  const [filterType, setFilterType] = useState('all'); // Estado para almacenar el tipo de filtro (películas, series o todo)
+  const [page, setPage] = useState(1); // Estado para manejar la paginación
+  const [searching, setSearching] = useState(false); // Estado para manejar si se está realizando una búsqueda
+  const [searchQuery, setSearchQuery] = useState(''); // Estado para almacenar la consulta de búsqueda
 
-  // Hook de React Router para obtener la ubicación actual
-  const location = useLocation();
+  const location = useLocation(); // Hook para obtener la ubicación actual
 
   // Función para obtener todas las películas con paginación
   const fetchAllMovies = async (page = 1) => {
@@ -76,12 +68,12 @@ const App = () => {
     }
   };
 
-  // Hook para obtener las películas y series más populares al cargar el componente
+  // Efecto para obtener los datos más populares al montar el componente
   useEffect(() => {
     fetchTrending();
   }, []);
 
-  // Hook para manejar los cambios en el filtro y la búsqueda
+  // Efecto para obtener todas las películas o series dependiendo del filtro y si no se está buscando
   useEffect(() => {
     if (!searching) {
       if (filterType === 'movie') {
@@ -94,7 +86,7 @@ const App = () => {
     }
   }, [filterType, searching]);
 
-  // Hook para manejar la paginación y la búsqueda
+  // Efecto para realizar la búsqueda o la paginación
   useEffect(() => {
     if (searching) {
       performSearch(searchQuery, page);
@@ -107,7 +99,7 @@ const App = () => {
     }
   }, [page, searching]);
 
-  // Hook para actualizar los datos filtrados cuando cambian los filtros o la búsqueda
+  // Efecto para actualizar los datos filtrados cuando cambia el tipo de filtro, las películas, las series o los datos populares
   useEffect(() => {
     if (!searching) {
       if (filterType === 'all') {
@@ -120,7 +112,7 @@ const App = () => {
     }
   }, [filterType, trending, movies, tvShows, searching]);
 
-  // Hook para manejar los cambios en la ubicación
+  // Efecto para manejar los cambios en la ubicación
   useEffect(() => {
     if (location.pathname === '/movies') {
       setFilterType('movie');
@@ -159,33 +151,34 @@ const App = () => {
     setPage(prevPage => prevPage + 1);
   };
 
-  // Rutas
+  // Renderiza las rutas y componentes
   return (
     <>
-      <Navbar onSearch={handleSearch} resetSearch={resetSearch} />
+      <Navbar onSearch={handleSearch} resetSearch={resetSearch} /> {/* Navbar recibe las funciones de búsqueda y reinicio */}
       <div className="app-container">
         <Routes>
           <Route path="/" element={
             <>
+              {!searching && <TrendingCarousel />} {/* Muestra el carrusel solo si no se está buscando */}
               {searching ? <h1 className="search-title">Estos son los resultados de búsqueda...</h1> :
               filterType === 'all' && <h1 className="home-title">LAS PELÍCULAS Y SERIES MÁS POPULARES DEL MOMENTO</h1>}
-              <Movies data={filteredData} fetchMore={fetchMore} type={filterType} />
+              <Movies data={filteredData} fetchMore={fetchMore} type={filterType} /> {/* Muestra las películas o series */}
             </>
           } />
           <Route path="/movies" element={
             <>
               <h1 className="page-title">TODAS LAS PELÍCULAS</h1>
-              <Movies data={filteredData.length ? filteredData : movies} fetchMore={fetchMore} type="movie" />
+              <Movies data={filteredData.length ? filteredData : movies} fetchMore={fetchMore} type="movie" /> {/* Muestra todas las películas */}
             </>
           } />
           <Route path="/series" element={
             <>
               <h1 className="page-title">TODAS LAS SERIES</h1>
-              <Movies data={filteredData.length ? filteredData : tvShows} fetchMore={fetchMore} type="tv" />
+              <Movies data={filteredData.length ? filteredData : tvShows} fetchMore={fetchMore} type="tv" /> {/* Muestra todas las series */}
             </>
           } />
-          <Route path="/:type/:id" element={<MovieDetail onSearch={handleSearch} resetSearch={resetSearch} />} />
-          <Route path="/person/:id" element={<PersonDetail onSearch={handleSearch} resetSearch={resetSearch} />} />
+          <Route path="/:type/:id" element={<MovieDetail onSearch={handleSearch} resetSearch={resetSearch} />} /> {/* Detalle de la película */}
+          <Route path="/person/:id" element={<PersonDetail onSearch={handleSearch} resetSearch={resetSearch} />} /> {/* Detalle de la persona */}
         </Routes>
       </div>
     </>

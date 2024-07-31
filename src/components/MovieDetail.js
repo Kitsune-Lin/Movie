@@ -1,57 +1,49 @@
-import React, { useState, useEffect } from 'react';
-import { useParams, useLocation } from 'react-router-dom';
-import axios from 'axios';
-import './MovieDetail.css';
+import React, { useState, useEffect } from 'react'; // Importa React y hooks necesarios desde la librería react
+import { useParams, useLocation, Link } from 'react-router-dom'; // Importa hooks y componentes de react-router-dom para manejar la navegación y obtener parámetros de la URL
+import axios from 'axios'; // Importa axios para hacer solicitudes HTTP
+import './MovieDetail.css'; // Importa los estilos CSS específicos para este componente
 
-// Componente para mostrar los detalles de una película o serie
 const MovieDetail = ({ data }) => {
-  // Obtener el tipo (película o serie) y el ID de los parámetros de la URL
-  const { type, id } = useParams();
-  // Estado para guardar los detalles de la película o serie
-  const [details, setDetails] = useState(data || null);
-  // Estado para guardar el enlace del trailer
-  const [trailer, setTrailer] = useState(null);
-  // Estado para manejar errores
-  const [error, setError] = useState(null);
-  // Hook de ubicación de React Router para detectar cambios en la URL
-  const location = useLocation();
+  const { type, id } = useParams(); // Obtiene los parámetros de la URL (tipo de media y ID)
+  const [details, setDetails] = useState(data || null); // Estado para almacenar los detalles de la película o serie
+  const [trailer, setTrailer] = useState(null); // Estado para almacenar la URL del tráiler de YouTube
+  const [error, setError] = useState(null); // Estado para manejar posibles errores
+  const location = useLocation(); // Hook para obtener la ubicación actual, útil para detectar cambios en la URL
 
-  // Efecto para obtener los detalles de la película o serie si no se pasan como props
+  // Hook useEffect para obtener los detalles de la película o serie cuando el componente se monta o cuando cambian el tipo o ID
   useEffect(() => {
-    if (!data) {
+    if (!data) { // Solo realiza la solicitud si no hay datos previos
       const fetchDetails = async () => {
         try {
-          // Realizar una solicitud GET a la API de TMDB para obtener los detalles de la película o serie
+          // Realiza una solicitud GET a la API de TMDB para obtener los detalles de la película o serie
           const response = await axios.get(`https://api.themoviedb.org/3/${type}/${id}`, {
             params: {
-              api_key: process.env.REACT_APP_TMDB_API_KEY, // Obtener la API key desde las variables de entorno
-              language: 'es-ES', // Idioma de la respuesta
-              append_to_response: 'credits,videos', // Incluir los créditos y videos en la respuesta
+              api_key: process.env.REACT_APP_TMDB_API_KEY, // La clave de API se obtiene de las variables de entorno
+              language: 'es-ES', // Define el idioma de la respuesta
+              append_to_response: 'credits,videos', // Incluye los créditos y videos en la respuesta
             },
           });
-          // Guardar los detalles en el estado
-          setDetails(response.data);
-          // Buscar y guardar el enlace del trailer en el estado si está disponible
+          setDetails(response.data); // Guarda los detalles obtenidos en el estado
+          // Busca y guarda el tráiler de YouTube si está disponible
           if (response.data.videos && response.data.videos.results.length > 0) {
             const trailerVideo = response.data.videos.results.find(video => video.type === 'Trailer' && video.site === 'YouTube');
             setTrailer(trailerVideo ? `https://www.youtube.com/embed/${trailerVideo.key}` : null);
           }
-        } catch (err) {
-          // Manejar errores y guardarlos en el estado
+        } catch (err) { // Manejo de errores en la solicitud
           setError(err);
           console.error(err);
         }
       };
       fetchDetails();
     }
-  }, [type, id, data, location]);
+  }, [type, id, data, location]); // El efecto se ejecuta cuando cambian estos valores
 
-  // Mostrar un mensaje de error si ocurre un error
+  // Renderiza un mensaje de error si hay algún problema con la solicitud
   if (error) {
     return <div className="error">Error: {error.message}</div>;
   }
 
-  // Mostrar un mensaje de carga mientras se obtienen los detalles
+  // Renderiza un mensaje de carga mientras se obtienen los detalles
   if (!details) {
     return <div>Loading...</div>;
   }
@@ -59,33 +51,28 @@ const MovieDetail = ({ data }) => {
   return (
     <div className="movie-detail">
       <div className="movie-detail-card">
-        {/* Mostrar la imagen de la película o serie */}
         <img
-          src={`https://image.tmdb.org/t/p/w500${details.poster_path}`}
-          alt={details.title || details.name}
-          className="movie-detail-img"
+          src={`https://image.tmdb.org/t/p/w500${details.poster_path}`} // URL de la imagen del poster
+          alt={details.title || details.name} // Texto alternativo para la imagen
+          className="movie-detail-img" // Clase CSS para estilizar la imagen
         />
         <div className="movie-detail-content">
-          {/* Mostrar el título de la película o serie */}
-          <h2>{details.title || details.name}</h2>
-          {/* Mostrar la fecha de lanzamiento de la película o serie */}
-          <p><strong>Fecha de lanzamiento:</strong> {details.release_date || details.first_air_date}</p>
-          {/* Mostrar los géneros de la película o serie */}
-          <p><strong>Géneros:</strong> {details.genres.map(genre => genre.name).join(', ')}</p>
-          {/* Mostrar la sinopsis de la película o serie */}
-          <p><strong>Sinopsis:</strong> {details.overview}</p>
-          {/* Mostrar el reparto principal de la película o serie */}
-          <p><strong>Reparto:</strong> {details.credits.cast.slice(0, 5).map(actor => actor.name).join(', ')}</p>
+          <h2>{details.title || details.name}</h2> {/* Título o nombre de la película o serie */}
+          <p><strong>Fecha de lanzamiento:</strong> {details.release_date || details.first_air_date}</p> {/* Fecha de lanzamiento */}
+          <p><strong>Géneros:</strong> {details.genres.map(genre => genre.name).join(', ')}</p> {/* Lista de géneros */}
+          <p><strong>Sinopsis:</strong> {details.overview}</p> {/* Sinopsis */}
+          <p><strong>Reparto:</strong> {details.credits.cast.slice(0, 5).map(actor => ( // Muestra los primeros 5 actores del reparto
+            <Link key={actor.id} to={`/person/${actor.id}`} className="actor-link">{actor.name}</Link> // Enlace al detalle de cada actor
+          )).reduce((prev, curr) => [prev, ', ', curr])}</p>
         </div>
       </div>
-      {trailer && (
+      {trailer && ( // Muestra el tráiler si está disponible
         <div className="movie-detail-trailer">
-          {/* Mostrar el trailer de la película o serie si está disponible */}
           <h3>Trailer</h3>
           <iframe
             width="560"
             height="315"
-            src={trailer}
+            src={trailer} // URL del tráiler
             title="YouTube video player"
             frameBorder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"

@@ -72,4 +72,13 @@
   .movie-detail-content {
     width: 100%;
   }
+  .actor-link {
+    color: #FFD700; /* color dorado */
+    text-decoration: none;
+  }
+  
+  .actor-link:hover {
+    text-decoration: underline;
+  }
+  
 }
