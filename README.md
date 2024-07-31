@@ -28,17 +28,22 @@ Movie & Series Vibes es una aplicación web desarrollada para permitir a los usu
 ## Configuración del Proyecto en Otro Computador:
 Para ejecutar este proyecto en otro computador, sigue estos pasos:
 1. **Clonar el Repositorio:**
-### `git clone https://github.com/Kitsune-Lin/Movie.git cd Movie`
+### `git clone https://github.com/Kitsune-Lin/Movie.git`
+### `cd Movie`
 
 2. **Instalar Dependencias:**
 Asegúrate de tener Node.js instalado. Luego, ejecuta:
 ### `npm install`
 
-3. **Configurar Variables de Entorno:**
+3. **Instalar Dependencias Adicionales:**
+Instala las dependencias `react-slick` y `slick-carousel` necesarias para el carrusel:
+### ` npm install react-slick slick-carousel`
+
+5. **Configurar Variables de Entorno:**
 Crea un archivo `.env` en la raíz del proyecto y agrega tu clave de API de TMDB:
 ### `REACT_APP_TMDB_API_KEY=your_api_key_here` 
 
-4. **Iniciar la Aplicación:**
+6. **Iniciar la Aplicación:**
 ### `npm start` 
 
 Esto iniciará la aplicación en http://localhost:3000.
