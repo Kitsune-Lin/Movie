@@ -1,0 +1,25 @@
+/* Contenedor de las películas */
+.movies-container {
+  display: flex; /* Utiliza flexbox para el layout */
+  flex-wrap: wrap; /* Permite que los elementos se envuelvan en varias filas */
+  justify-content: center; /* Centra los elementos en el eje horizontal */
+  gap: 20px; /* Espacio entre los elementos */
+  background-color: #302D2F; /* Color de fondo del contenedor */
+  padding: 20px; /* Espacio interno del contenedor */
+}
+
+/* Estilo de cada tarjeta de película */
+.movie-card {
+  background-color: #FCFBFA; /* Color de fondo de la tarjeta */
+  padding: 20px; /* Espacio interno de la tarjeta */
+  border-radius: 8px; /* Bordes redondeados */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra para dar efecto de elevación */
+  width: 200px; /* Ancho fijo de la tarjeta */
+  text-align: center; /* Centra el contenido de texto dentro de la tarjeta */
+}
+
+/* Estilo de la imagen dentro de cada tarjeta de película */
+.movie-card img {
+  width: 100%; /* La imagen ocupa el 100% del ancho de la tarjeta */
+  border-radius: 8px; /* Bordes redondeados para la imagen */
+}

@@ -1,0 +1,25 @@
+/* Estilo general del contenedor de la barra de búsqueda */
+.search-bar {
+  display: flex; /* Utiliza flexbox para el layout */
+  align-items: center; /* Alinea los elementos al centro verticalmente */
+  justify-content: center; /* Centra el contenido horizontalmente */
+  background-color: white; /* Color de fondo blanco */
+  border-radius: 50px; /* Bordes redondeados */
+  padding: 10px; /* Espacio interno del contenedor */
+  width: 500px; /* Ancho fijo de la barra de búsqueda */
+}
+
+/* Estilo del campo de entrada de texto en la barra de búsqueda */
+.search-bar input {
+  border: none; /* Sin bordes */
+  outline: none; /* Sin contorno al enfocarse */
+  padding: 10px; /* Espacio interno del campo de texto */
+  flex-grow: 1; /* Ocupa todo el espacio disponible */
+}
+
+/* Estilo del botón de la barra de búsqueda */
+.search-bar button {
+  background: none; /* Sin fondo */
+  border: none; /* Sin bordes */
+  cursor: pointer; /* Cambia el cursor a una mano al pasar sobre el botón */
+}

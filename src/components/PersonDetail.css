@@ -1,0 +1,88 @@
+/* Estilo general del contenedor de detalles de la persona */
+.person-detail {
+  display: flex; /* Utiliza flexbox para el layout */
+  justify-content: center; /* Centra el contenido horizontalmente */
+  align-items: flex-start; /* Alinea los elementos al inicio del eje vertical */
+  padding: 20px; /* Espacio interno del contenedor */
+  width: 100%; /* Ancho completo del contenedor */
+}
+
+/* Estilo de la tarjeta de detalles de la persona */
+.person-detail-card {
+  background-color: #FCFBFA; /* Color de fondo de la tarjeta */
+  border-radius: 10px; /* Bordes redondeados */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra para dar efecto de elevación */
+  display: flex; /* Utiliza flexbox para el layout */
+  flex-direction: row; /* Elementos en una fila */
+  align-items: flex-start; /* Alinea los elementos al inicio del eje vertical */
+  padding: 20px; /* Espacio interno de la tarjeta */
+  max-width: 1000px; /* Ancho máximo de la tarjeta */
+  width: 100%; /* Ancho completo de la tarjeta */
+  color: #302D2F; /* Color del texto */
+}
+
+/* Estilo de la imagen de detalles de la persona */
+.person-detail-img {
+  max-width: 300px; /* Ancho máximo de la imagen */
+  width: 100%; /* Ancho completo de la imagen */
+  height: auto; /* Altura automática para mantener la proporción */
+  border-radius: 10px; /* Bordes redondeados */
+  margin-right: 20px; /* Margen derecho */
+}
+
+/* Contenedor de contenido de detalles de la persona */
+.person-detail-content {
+  flex: 1; /* Toma el espacio restante disponible */
+  display: flex; /* Utiliza flexbox para el layout */
+  flex-direction: column; /* Elementos en una columna */
+}
+
+/* Estilo del título de detalles de la persona */
+.person-detail-content h2 {
+  font-size: 24px; /* Tamaño de fuente */
+  margin-bottom: 10px; /* Margen inferior */
+}
+
+/* Estilo de los párrafos de detalles de la persona */
+.person-detail-content p {
+  font-size: 16px; /* Tamaño de fuente */
+  margin-bottom: 10px; /* Margen inferior */
+}
+
+/* Estilo de los subtítulos de detalles de la persona */
+.person-detail-content h3 {
+  font-size: 20px; /* Tamaño de fuente */
+  margin-top: 20px; /* Margen superior */
+}
+
+/* Estilo de la lista de detalles de la persona */
+.person-detail-content ul {
+  list-style-type: none; /* Quita los puntos de la lista */
+  padding: 0; /* Sin padding */
+}
+
+/* Estilo de los elementos de la lista de detalles de la persona */
+.person-detail-content ul li {
+  margin-bottom: 10px; /* Margen inferior */
+}
+
+/* Media query para dispositivos con un ancho máximo de 768px */
+@media (max-width: 768px) {
+  /* Cambia la dirección del layout a columna para pantallas pequeñas */
+  .person-detail-card {
+    flex-direction: column;
+    max-width: 100%;
+  }
+
+  /* Ajusta la imagen para pantallas pequeñas */
+  .person-detail-img {
+    width: 100%;
+    margin-right: 0;
+    margin-bottom: 20px;
+  }
+
+  /* Ajusta el contenedor de contenido para pantallas pequeñas */
+  .person-detail-content {
+    width: 100%;
+  }
+}

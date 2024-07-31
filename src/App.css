@@ -1,0 +1,50 @@
+/* Contenedor principal de la aplicación */
+.app-container {
+  background-color: #302D2F; /* Color de fondo oscuro */
+  min-height: 100vh; /* Altura mínima para ocupar toda la altura de la ventana */
+  color: white; /* Color del texto blanco */
+  display: flex; /* Utiliza flexbox para el layout */
+  flex-direction: column; /* Dirección de los elementos en columna */
+  align-items: center; /* Alinea los elementos al centro horizontalmente */
+  padding-top: 60px; /* Espacio superior para evitar superposición con la barra de navegación */
+}
+
+/* Contenedor para los botones de filtro */
+.button-container {
+  display: flex; /* Utiliza flexbox para el layout */
+  justify-content: center; /* Centra los botones horizontalmente */
+  margin: 20px 0; /* Margen vertical de 20px */
+}
+
+/* Estilo para los botones de filtro */
+.filter-button {
+  background-color: #FCFBFA; /* Color de fondo blanco */
+  padding: 10px 20px; /* Espacio interno del botón */
+  margin: 0 10px; /* Margen horizontal de 10px */
+  border-radius: 20px; /* Bordes redondeados */
+  border: none; /* Sin borde */
+  color: #302D2F; /* Color del texto */
+  font-weight: bold; /* Texto en negrita */
+  text-transform: uppercase; /* Texto en mayúsculas */
+  cursor: pointer; /* Cambia el cursor a una mano al pasar sobre el botón */
+}
+
+/* Efecto hover para los botones de filtro */
+.filter-button:hover {
+  background-color: #FFD700; /* Color de fondo dorado al pasar el cursor */
+  color: #000; /* Color del texto negro al pasar el cursor */
+}
+
+/* Estilo para el título en la página de inicio */
+.home-title {
+  font-size: 24px; /* Tamaño de fuente de 24px */
+  margin-bottom: 20px; /* Margen inferior de 20px */
+  text-align: center; /* Texto centrado */
+}
+
+/* Estilo para el título en las páginas de películas y series */
+.page-title {
+  font-size: 24px; /* Tamaño de fuente de 24px */
+  margin-bottom: 20px; /* Margen inferior de 20px */
+  text-align: center; /* Texto centrado */
+}

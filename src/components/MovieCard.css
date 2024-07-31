@@ -1,0 +1,50 @@
+/* Estilo principal para la tarjeta de película */
+.movie-card {
+  background-color: #FCFBFA; /* Fondo de color blanco */
+  border-radius: 10px; /* Bordes redondeados */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra alrededor de la tarjeta */
+  overflow: hidden; /* Oculta el contenido desbordado */
+  margin: 20px; /* Margen exterior de 20px */
+  padding: 20px; /* Relleno interior de 20px */
+  color: #302D2F; /* Color del texto */
+  text-align: center; /* Centra el texto */
+  max-width: 300px; /* Ancho máximo de 300px */
+  width: 100%; /* Ancho del 100% del contenedor padre */
+}
+
+/* Estilo para la imagen dentro de la tarjeta */
+.movie-card img {
+  width: 100%; /* Ancho completo de la tarjeta */
+  height: auto; /* Altura automática para mantener la proporción */
+  border-bottom: 1px solid #ccc; /* Borde inferior gris claro */
+  margin-bottom: 10px; /* Margen inferior de 10px */
+}
+
+/* Estilo para el título de la película */
+.movie-card h2 {
+  font-size: 18px; /* Tamaño de fuente de 18px */
+  margin: 10px 0; /* Margen superior e inferior de 10px */
+}
+
+/* Estilo para el párrafo de la película */
+.movie-card p {
+  font-size: 14px; /* Tamaño de fuente de 14px */
+  color: #777; /* Color gris del texto */
+  margin-bottom: 10px; /* Margen inferior de 10px */
+}
+
+/* Estilo para la calificación de la película */
+.movie-card .rating {
+  font-size: 16px; /* Tamaño de fuente de 16px */
+  font-weight: bold; /* Fuente en negrita */
+  color: #F8BD16; /* Color dorado */
+  margin-bottom: 10px; /* Margen inferior de 10px */
+}
+
+/* Estilo responsivo para pantallas de hasta 768px de ancho */
+@media (max-width: 768px) {
+  .movie-card {
+    max-width: none; /* Ancho máximo sin límite */
+    margin: 10px 0; /* Margen superior e inferior de 10px */
+  }
+}
