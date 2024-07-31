@@ -1,70 +1,63 @@
-# Getting Started with Create React App
+# Acerca del Proyecto: Movie & Series Vibes
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Nombre del Proyecto:
+Movie & Series Vibes
 
-## Available Scripts
+## Descripción:
+Movie & Series Vibes es una aplicación web desarrollada para permitir a los usuarios buscar y visualizar información sobre películas, series y actores utilizando la API pública de The Movie Database (TMDB). La aplicación incluye una página de inicio con las películas y series más populares, un campo de búsqueda para encontrar películas, series y actores, y páginas de detalle para cada uno con información relevante.
 
-In the project directory, you can run:
+## Tecnologías Utilizadas:
+1. **Lenguaje de Programación:** JavaScript
+2. **Framework de Interfaz de Usuario:** React
+3. **Enrutamiento:** React Router
+4. **Solicitudes HTTP:** Axios
+5. **Estilos:** CSS
 
-### `npm start`
+### Detalles de las Tecnologías:
+- **React:** Utilizado para construir la interfaz de usuario de la aplicación.
+- **React Router:** Manejo de rutas dentro de la aplicación para navegar entre diferentes páginas.
+- **Axios:** Librería para hacer solicitudes HTTP a la API de TMDB.
+- **CSS:** Estilizado de componentes para una mejor experiencia de usuario.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Funcionalidades Principales:
+1. **Página de Inicio:** Muestra las películas y series más populares.
+2. **Búsqueda:** Permite a los usuarios buscar películas, series y actores.
+3. **Páginas de Detalle:** Muestra información detallada sobre una película, serie o actor, incluyendo trailers.
+4. **Paginación:** Carga más datos a medida que el usuario se desplaza hacia abajo en las páginas de 'Películas' y 'Series'.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Configuración del Proyecto en Otro Computador:
+Para ejecutar este proyecto en otro computador, sigue estos pasos:
+1. **Clonar el Repositorio:**
+### `git clone https://github.com/Kitsune-Lin/Movie.git cd Movie`
 
-### `npm test`
+2. **Instalar Dependencias:**
+Asegúrate de tener Node.js instalado. Luego, ejecuta:
+### `npm install`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+3. **Configurar Variables de Entorno:**
+Crea un archivo `.env` en la raíz del proyecto y agrega tu clave de API de TMDB:
+### `REACT_APP_TMDB_API_KEY=your_api_key_here` 
 
-### `npm run build`
+4. **Iniciar la Aplicación:**
+### `npm start` 
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Esto iniciará la aplicación en http://localhost:3000.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Justificación del Uso de Herramientas y Librerías:
+1. **React:** Es una biblioteca popular para construir interfaces de usuario de manera eficiente con componentes reutilizables.
+2. **React Router:** Facilita la navegación dentro de la aplicación, permitiendo una experiencia de usuario más fluida.
+3. **Axios:** Simplifica las solicitudes HTTP y el manejo de promesas, haciendo que la interacción con la API de TMDB sea más sencilla.
+4. **CSS:** Se utiliza para estilizar los componentes de la aplicación, asegurando una interfaz amigable y atractiva.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Extensiones Utilizadas en VS Code:
+1. **ESLint:** Integra ESLint JavaScript en VS Code.
+2. **JavaScript** (ES6) code snippets: Fragmentos de código para JavaScript en sintaxis ES6.
+3. **Material Icon Theme:** Iconos de Material Design para código de Visual Studio.
+4. **Node.js Extension Pack:** Extensiones populares de VS Code para el desarrollo en Node.js.
+5. **npm:** Soporte npm para VS Code.
+6. **npm Intellisense:** Plugin de Visual Studio Code que autocompleta los módulos npm en las sentencias import.
+7. **Path Intellisense:** Plugin de Visual Studio Code que autocompleta los nombres de archivo.
+8. **Prettier - Code formatter:** Formateador de código que utiliza Prettier.
+9. **Search node_modules:** Busca rápidamente en la carpeta node_modules.
+10. **Simple React Snippets:** Snippets de React simples y muertos que realmente usarás.
+11. **Spanish Language Pack for Visual Studio Code:** Paquete de idioma español.
